@@ -179,3 +179,10 @@ width:100%;
 max-width:350px;
 }
 }
+.download-btn{
+background:#28a745;
+}
+
+.download-btn:hover{
+background:#1e7e34;
+}
