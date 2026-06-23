@@ -87,7 +87,7 @@ nav a:hover{
     box-shadow:0 5px 15px rgba(0,0,0,0.15);
 }
 
-/* Subjects Section */
+/* Subjects */
 .subjects{
     padding:60px 20px;
     text-align:center;
@@ -149,12 +149,26 @@ nav a:hover{
     background:#0d47a1;
 }
 
+/* Download Button */
 .download-btn{
     background:#28a745;
 }
 
 .download-btn:hover{
     background:#1e7e34;
+}
+
+/* FA Marks Card */
+.marks-card{
+    border-top:5px solid #ff9800;
+}
+
+.marks-btn{
+    background:#ff9800;
+}
+
+.marks-btn:hover{
+    background:#e68900;
 }
 
 /* Footer */
@@ -166,7 +180,7 @@ footer{
     margin-top:50px;
 }
 
-/* Mobile */
+/* Mobile Responsive */
 @media(max-width:768px){
 
     header{
