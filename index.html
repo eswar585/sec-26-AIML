@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEC-26 AIML Notes Portal</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f7fc;
+}
+
+header{
+background:#1565d8;
+color:white;
+text-align:center;
+padding:25px;
+}
+
+.logo{
+width:120px;
+height:120px;
+border-radius:50%;
+margin-bottom:10px;
+}
+
+.search-box{
+text-align:center;
+margin:20px;
+}
+
+.search-box input{
+width:80%;
+max-width:500px;
+padding:12px;
+font-size:16px;
+border-radius:10px;
+border:1px solid #ccc;
+}
+
+.container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+padding:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.card h2{
+color:#1565d8;
+margin-bottom:15px;
+}
+
+.card a{
+display:block;
+padding:10px;
+margin:8px 0;
+background:#1565d8;
+color:white;
+text-decoration:none;
+border-radius:8px;
+text-align:center;
+}
+
+.card a:hover{
+background:#0d47a1;
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:#1565d8;
+color:white;
+margin-top:20px;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+<img src="logo.png" class="logo">
+<h1>SEC-26 AIML Notes Portal</h1>
+<p>Class Notes, PDFs and Study Materials</p>
+</header>
+
+<div class="search-box">
+<input type="text" id="search" placeholder="Search Subject...">
+</div>
+
+<div class="container">
+
+<div class="card">
+<h2>Mathematics</h2>
+<a href="syllabus.pdf" target="_blank">
+View Mathematics Syllabus
+</a>
+</div>
+
+<div class="card">
+<h2>BEEE</h2>
+<a href="BEEE%20SYLLABUS.pdf" target="_blank">
+View BEEE Syllabus
+</a>
+</div>
+
+</div>
+
+<footer>
+SEC-26 AIML © 2026
+</footer>
+
+<script>
+const search=document.getElementById("search");
+
+search.addEventListener("keyup",function(){
+let filter=search.value.toLowerCase();
+let cards=document.querySelectorAll(".card");
+
+cards.forEach(card=>{
+let text=card.innerText.toLowerCase();
+
+if(text.includes(filter)){
+card.style.display="block";
+}
+else{
+card.style.display="none";
+}
+});
+});
+</script>
+
+</body>
+</html>
