@@ -18,139 +18,220 @@ background:#f4f7fc;
 }
 
 header{
-background:#1565d8;
+background:#002b6b;
 color:white;
-text-align:left;
-padding:25px;
+padding:15px 50px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
-.logo{
-width:120px;
-height:120px;
+.logo-section{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.logo-section img{
+width:70px;
+height:70px;
 border-radius:50%;
-margin-bottom:10px;
 }
 
-.search-box{
-text-align:center;
-margin:20px;
+.logo-text h1{
+font-size:30px;
 }
 
-.search-box input{
-width:80%;
-max-width:500px;
-padding:12px;
+.logo-text p{
 font-size:16px;
-border-radius:10px;
-border:1px solid #ccc;
 }
 
-.container{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:20px;
-padding:20px;
+nav a{
+color:white;
+text-decoration:none;
+margin:0 15px;
+font-weight:bold;
+}
+
+.hero{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:60px;
+background:white;
+}
+
+.hero-text{
+max-width:600px;
+}
+
+.hero-text h2{
+font-size:60px;
+color:#002b6b;
+margin-bottom:15px;
+}
+
+.hero-text p{
+font-size:22px;
+color:#444;
+margin-bottom:20px;
+}
+
+.hero img{
+width:280px;
+border-radius:50%;
+}
+
+.subjects{
+padding:50px;
+text-align:center;
+}
+
+.subjects h2{
+font-size:40px;
+color:#002b6b;
+margin-bottom:30px;
+}
+
+.cards{
+display:flex;
+gap:30px;
+justify-content:center;
+flex-wrap:wrap;
 }
 
 .card{
 background:white;
-padding:20px;
+width:350px;
+padding:25px;
 border-radius:15px;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+text-align:left;
 }
 
-.card h2{
-color:#1565d8;
-margin-bottom:15px;
+.card h3{
+font-size:30px;
+margin-bottom:10px;
 }
 
-.card a{
-display:block;
-padding:10px;
-margin:8px 0;
+.card p{
+margin-bottom:20px;
+color:#555;
+}
+
+.btn{
+display:inline-block;
 background:#1565d8;
 color:white;
-text-decoration:none;
+padding:12px 20px;
 border-radius:8px;
-text-align:center;
+text-decoration:none;
+font-weight:bold;
 }
 
-.card a:hover{
+.btn:hover{
 background:#0d47a1;
 }
 
 footer{
+background:#002b6b;
+color:white;
 text-align:center;
 padding:20px;
-background:#1565d8;
-color:white;
+margin-top:40px;
+}
+
+@media(max-width:768px){
+
+header{
+flex-direction:column;
+gap:15px;
+}
+
+.hero{
+flex-direction:column;
+text-align:center;
+}
+
+.hero-text h2{
+font-size:40px;
+}
+
+.hero img{
 margin-top:20px;
 }
+}
 </style>
-
 </head>
+
 <body>
 
 <header>
-<img src="logo.png" class="logo">
-<h1>SEC-26 AIML Notes Portal</h1>
-<p>Class Notes, PDFs and Study Materials</p>
+<div class="logo-section">
+<img src="logo.png" alt="Logo">
+
+<div class="logo-text">
+<h1>SEC-26 AIML</h1>
+<p>Class Notes Portal</p>
+</div>
+</div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#subjects">Subjects</a>
+</nav>
 </header>
 
-<div class="search-box">
-<input type="text" id="search" placeholder="Search Subject...">
+<section class="hero">
+<div class="hero-text">
+<h2>SEC-26 AIML</h2>
+<p>Your One-Stop Portal for Class Notes & Resources</p>
+
+<p>
+Find Mathematics and BEEE syllabus PDFs in one place.
+</p>
 </div>
 
-<div class="container">
+<img src="logo.png" alt="Logo">
+</section>
+
+<section class="subjects" id="subjects">
+
+<h2>Browse Subject Materials</h2>
+
+<div class="cards">
 
 <div class="card">
-<h2>Mathematics</h2>
-<a href="syllabus.pdf" target="_blank">
-Mathematics Syllabus
+<h3>📘 Mathematics</h3>
+
+<p>
+Mathematics Syllabus for I Year.
+</p>
+
+<a class="btn" href="syllabus.pdf" target="_blank">
+View Mathematics Syllabus
 </a>
 </div>
 
 <div class="card">
-<h2>BEEE</h2>
-<a href="BEEE%20SYLLABUS.pdf" target="_blank">
-BEEE Syllabus
+<h3>⚡ BEEE</h3>
+
+<p>
+Basics of Electrical and Electronics Engineering.
+</p>
+
+<a class="btn" href="BEEE%20SYLLABUS.pdf" target="_blank">
+View BEEE Syllabus
 </a>
 </div>
 
-<div class="card">
-<h2>FA Marks</h2>
-<a href="FA%20MARKS.pdf" target="_blank">
-FA Marks
-</a>
 </div>
 
-</div>
+</section>
 
 <footer>
-Any queries
-CONTACT: eswar@gmail.com
-SEC-26 AIML © 2026
+© 2026 SEC-26 AIML Notes Portal
 </footer>
-
-<script>
-const search=document.getElementById("search");
-
-search.addEventListener("keyup",function(){
-let filter=search.value.toLowerCase();
-let cards=document.querySelectorAll(".card");
-
-cards.forEach(card=>{
-let text=card.innerText.toLowerCase();
-
-if(text.includes(filter)){
-card.style.display="block";
-}
-else{
-card.style.display="none";
-}
-});
-});
-</script>
 
 </body>
 </html>
