@@ -4,233 +4,81 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SEC-26 AIML Notes Portal</title>
-
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
-body{
-background:#f4f7fc;
-}
-
-header{
-background:#002b6b;
-color:white;
-padding:15px 50px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.logo-section{
-display:flex;
-align-items:center;
-gap:15px;
-}
-
-.logo-section img{
-width:70px;
-height:70px;
-border-radius:50%;
-}
-
-.logo-text h1{
-font-size:30px;
-}
-
-.logo-text p{
-font-size:16px;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-margin:0 15px;
-font-weight:bold;
-}
-
-.hero{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:60px;
-background:white;
-}
-
-.hero-text{
-max-width:600px;
-}
-
-.hero-text h2{
-font-size:60px;
-color:#002b6b;
-margin-bottom:15px;
-}
-
-.hero-text p{
-font-size:22px;
-color:#444;
-margin-bottom:20px;
-}
-
-.hero img{
-width:280px;
-border-radius:50%;
-}
-
-.subjects{
-padding:50px;
-text-align:center;
-}
-
-.subjects h2{
-font-size:40px;
-color:#002b6b;
-margin-bottom:30px;
-}
-
-.cards{
-display:flex;
-gap:30px;
-justify-content:center;
-flex-wrap:wrap;
-}
-
-.card{
-background:white;
-width:350px;
-padding:25px;
-border-radius:15px;
-box-shadow:0 3px 10px rgba(0,0,0,0.1);
-text-align:left;
-}
-
-.card h3{
-font-size:30px;
-margin-bottom:10px;
-}
-
-.card p{
-margin-bottom:20px;
-color:#555;
-}
-
-.btn{
-display:inline-block;
-background:#1565d8;
-color:white;
-padding:12px 20px;
-border-radius:8px;
-text-decoration:none;
-font-weight:bold;
-}
-
-.btn:hover{
-background:#0d47a1;
-}
-
-footer{
-background:#002b6b;
-color:white;
-text-align:center;
-padding:20px;
-margin-top:40px;
-}
-
-@media(max-width:768px){
-
-header{
-flex-direction:column;
-gap:15px;
-}
-
-.hero{
-flex-direction:column;
-text-align:center;
-}
-
-.hero-text h2{
-font-size:40px;
-}
-
-.hero img{
-margin-top:20px;
-}
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
-<div class="logo-section">
-<img src="logo.png" alt="Logo">
+    <div class="logo-section">
+        <img src="logo.png" alt="SEC-26 Logo">
 
-<div class="logo-text">
-<h1>SEC-26 AIML</h1>
-<p>Class Notes Portal</p>
-</div>
-</div>
+        <div class="logo-text">
+            <h1>SEC-26 AIML</h1>
+            <p>Class Notes Portal</p>
+        </div>
+    </div>
 
-<nav>
-<a href="#">Home</a>
-<a href="#subjects">Subjects</a>
-</nav>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#subjects">Subjects</a>
+    </nav>
 </header>
 
 <section class="hero">
-<div class="hero-text">
-<h2>SEC-26 AIML</h2>
-<p>Your One-Stop Portal for Class Notes & Resources</p>
+    <div class="hero-text">
+        <h2>SEC-26 AIML</h2>
 
-<p>
-Find Mathematics and BEEE syllabus PDFs in one place.
-</p>
-</div>
+        <p>
+            Your One-Stop Portal for Class Notes,
+            Syllabus PDFs and Study Resources.
+        </p>
 
-<img src="logo.png" alt="Logo">
+        <p>
+            Access Mathematics and BEEE materials
+            directly in your browser.
+        </p>
+    </div>
+
+    <img src="logo.png" alt="Logo">
 </section>
 
 <section class="subjects" id="subjects">
 
-<h2>Browse Subject Materials</h2>
+    <h2>Browse Subject Materials</h2>
 
-<div class="cards">
+    <div class="cards">
 
-<div class="card">
-<h3>📘 Mathematics</h3>
+        <div class="card">
+            <h3>📘 Mathematics</h3>
 
-<p>
-Mathematics Syllabus for I Year.
-</p>
+            <p>
+                Mathematics syllabus for I Year students.
+            </p>
 
-<a class="btn" href="syllabus.pdf" target="_blank">
-View Mathematics Syllabus
-</a>
-</div>
+            <a class="btn" href="syllabus.pdf" target="_blank">
+                View Mathematics Syllabus
+            </a>
+        </div>
 
-<div class="card">
-<h3>⚡ BEEE</h3>
+        <div class="card">
+            <h3>⚡ BEEE</h3>
 
-<p>
-Basics of Electrical and Electronics Engineering.
-</p>
+            <p>
+                Basics of Electrical and Electronics Engineering syllabus.
+            </p>
 
-<a class="btn" href="BEEE%20SYLLABUS.pdf" target="_blank">
-View BEEE Syllabus
-</a>
-</div>
+            <a class="btn" href="BEEE%20SYLLABUS.pdf" target="_blank">
+                View BEEE Syllabus
+            </a>
+        </div>
 
-</div>
+    </div>
 
 </section>
 
 <footer>
-© 2026 SEC-26 AIML Notes Portal
+    © 2026 SEC-26 AIML Notes Portal
 </footer>
 
 </body>
