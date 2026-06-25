@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My FA Marks</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="card" style="max-width:900px;margin:30px auto;">
+
+    <h2>Student FA Marks</h2>
+
+    <div id="studentInfo">
+        Loading...
+    </div>
+
+    <br>
+
+    <button class="btn" onclick="logout()">
+        Logout
+    </button>
+
+</div>
+
+<script type="module">
+
+import { db } from "./firebase-config.js";
+
+import {
+doc,
+getDoc
+}
+from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+const regNo = localStorage.getItem("studentRegNo");
+
+if(!regNo){
+    window.location.href = "login.html";
+}
+
+const docRef = doc(db,"students",regNo);
+
+const docSnap = await getDoc(docRef);
+
+if(docSnap.exists()){
+
+    const student = docSnap.data();
+
+    let html = `
+        <h3>${student.name}</h3>
+        <p><b>Registration Number:</b> ${student.regNo}</p>
+
+        <table border="1" width="100%" cellpadding="10">
+        <tr>
+            <th>Subject</th>
+            <th>Marks</th>
+        </tr>
+    `;
+
+    const excluded = ["name","regNo","password"];
+
+    for(const key in student){
+
+        if(!excluded.includes(key)){
+
+            html += `
+            <tr>
+                <td>${key}</td>
+                <td>${student[key]}</td>
+            </tr>
+            `;
+        }
+    }
+
+    html += "</table>";
+
+    document.getElementById("studentInfo").innerHTML = html;
+
+}
+else{
+
+    document.getElementById("studentInfo").innerHTML =
+    "<h3>Student record not found.</h3>";
+
+}
+
+window.logout = function(){
+
+    localStorage.removeItem("studentRegNo");
+
+    window.location.href = "login.html";
+}
+
+</script>
+
+</body>
+</html>
