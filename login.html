@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Login</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card" style="max-width:400px;margin:50px auto;">
+
+<h2>FA Marks Login</h2>
+
+<input type="text" id="regNo"
+placeholder="Registration Number"
+style="width:100%;padding:12px;margin:10px 0;">
+
+<input type="password" id="password"
+placeholder="Password"
+style="width:100%;padding:12px;margin:10px 0;">
+
+<button class="btn" onclick="loginStudent()">
+Login
+</button>
+
+<p id="message"></p>
+
+</div>
+
+<script type="module">
+
+import { db } from "./firebase-config.js";
+
+import {
+doc,
+getDoc
+}
+from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+window.loginStudent = async function(){
+
+const regNo =
+document.getElementById("regNo").value.trim();
+
+const password =
+document.getElementById("password").value.trim();
+
+const studentRef =
+doc(db,"students",regNo);
+
+const studentSnap =
+await getDoc(studentRef);
+
+if(studentSnap.exists()){
+
+const data = studentSnap.data();
+
+if(data.password === password){
+
+localStorage.setItem(
+"studentRegNo",
+regNo
+);
+
+window.location.href =
+"marks.html";
+
+}else{
+
+document.getElementById("message").innerHTML =
+"Wrong Password";
+
+}
+
+}else{
+
+document.getElementById("message").innerHTML =
+"Student Not Found";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
