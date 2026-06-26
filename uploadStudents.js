@@ -1,12 +1,4 @@
-import { db } from "./firebase-config.js";
-
-import {
-  doc,
-  setDoc
-} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
-
-// Student Database Array with 'COI (25BS101)' replaced by 'COI (25SS101)'
-const studentDatabase = [
+export const studentDatabase = [
   { regNo: "251FA18009", name: "ADDEPALLI NAGA MALLIKA", marks: { "PSUP (25CS102)": 53.7, "EC (25CT102)": 53.7, "BEEE (25EE101)": 56.2, "MS (25MS101)": 49.4, "CODE (25MT105)": 53.9, "CS (25CY101)": 42.6, "EPACS (25EN103)": 43.9, "DIY (25ME102)": 41.8, "ICH (25SS103)": 42.1, "COI (25SS101)": 44.8, "LS-KUCHI (25SA110)": 44.6 } },
   { regNo: "251FA18013", name: "AENAPUDI TEJA SRI", marks: { "PSUP (25CS102)": 48.3, "EC (25CT102)": 49.9, "BEEE (25EE101)": 48.4, "MS (25MS101)": 51.6, "CODE (25MT105)": 46.5, "CS (25CY101)": 45.0, "EPACS (25EN103)": 34.7, "DIY (25ME102)": 41.8, "ICH (25SS103)": 40.8, "COI (25SS101)": 48.6, "LS-KUCHI (25SA110)": 44.6 } },
   { regNo: "251FA18014", name: "AGGALA BHAVYA SRI DURGA BHAVANI", marks: { "PSUP (25CS102)": 45.0, "EC (25CT102)": 46.5, "BEEE (25EE101)": 51.8, "MS (25MS101)": 48.6, "CODE (25MT105)": 40.8, "CS (25CY101)": 41.9, "EPACS (25EN103)": 42.9, "DIY (25ME102)": 45.1, "ICH (25SS103)": 40.4, "COI (25SS101)": 41.9 } },
@@ -75,29 +67,3 @@ const studentDatabase = [
   { regNo: "251FA18186", name: "DASARI KOTESWARA RAO", marks: { "PSUP (25CS102)": 35.6, "EC (25CT102)": 35.3, "BEEE (25EE101)": 42.2, "MS (25MS101)": 44.4, "CODE (25MT105)": 34.5, "CS (24CY101)": 44.2, "EPACS (25EN103)": 37.4, "DIY (25ME102)": 41.8, "ICH (25SS103)": 35.4, "COI (25SS101)": 43.4 } },
   { regNo: "251FA18929", name: "VELLI PAVITHRA", marks: { "PSUP (25CS102)": 49.0, "EC (25CT102)": 47.8, "BEEE (25EE101)": 54.6, "MS (25MS101)": 52.0, "CODE (25MT105)": 48.9, "CS (25CY101)": 45.7, "EPACS (25EN103)": 43.6, "DIY (25ME102)": 41.8, "ICH (25SS103)": 41.2, "COI (25SS101)": 48.6 } }
 ];
-
-async function uploadStudents() {
-
-  for (const student of studentDatabase) {
-
-    const password = "AIML" + student.regNo.slice(-4);
-
-    await setDoc(
-      doc(db, "students", student.regNo),
-      {
-        regNo: student.regNo,
-        name: student.name,
-        password: password,
-        marks: student.marks
-      }
-    );
-
-    console.log(
-      `${student.regNo} -> ${password}`
-    );
-  }
-
-  alert("All students uploaded successfully!");
-}
-
-uploadStudents();
