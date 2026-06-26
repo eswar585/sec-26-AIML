@@ -66,4 +66,4 @@ export const studentDatabase = [
       { regNo: "251FA18183", name: "DASARI DINESH KARTHIK", marks: { "PSUP (25CS102)": 39.2, "EC (25CT102)": 36.6, "BEEE (25EE101)": 51.7, "MS (25MS101)": 44.7, "CODE (25MT105)": 41.9, "CS (25CY101)": 43.4, "EPACS (25EN103)": 41.7, "DIY (25ME102)": 41.8, "ICH (25SS103)": 37.5, "COI (25SS101)": 43.3 } },
       { regNo: "251FA18186", name: "DASARI KOTESWARA RAO", marks: { "PSUP (25CS102)": 35.6, "EC (25CT102)": 35.3, "BEEE (25EE101)": 42.2, "MS (25MS101)": 44.4, "CODE (25MT105)": 34.5, "CS (24CY101)": 44.2, "EPACS (25EN103)": 37.4, "DIY (25ME102)": 41.8, "ICH (25SS103)": 35.4, "COI (25SS101)": 43.4 } },
       { regNo: "251FA18929", name: "VELLI PAVITHRA", marks: { "PSUP (25CS102)": 49.0, "EC (25CT102)": 47.8, "BEEE (25EE101)": 54.6, "MS (25MS101)": 52.0, "CODE (25MT105)": 48.9, "CS (25CY101)": 45.7, "EPACS (25EN103)": 43.6, "DIY (25ME102)": 41.8, "ICH (25SS103)": 41.2, "COI (25SS101)": 48.6 } }
-    ];
+];
