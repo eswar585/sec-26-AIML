@@ -3,98 +3,95 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My FA Marks</title>
-<link rel="stylesheet" href="style.css">
-</head>
+<title>FA Marks</title>
 
+<style>
+
+body{
+margin:0;
+padding:20px;
+font-family:Arial,sans-serif;
+background:#f4f7fc;
+}
+
+.card{
+max-width:1000px;
+margin:auto;
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+
+h1{
+color:#1565d8;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th{
+background:#1565d8;
+color:white;
+padding:12px;
+}
+
+td{
+padding:12px;
+border:1px solid #ddd;
+}
+
+.logout{
+margin-top:20px;
+padding:12px 20px;
+background:red;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+.logout:hover{
+background:darkred;
+}
+
+</style>
+
+</head>
 <body>
 
-<div class="card" style="max-width:900px;margin:30px auto;">
+<div class="card">
 
-    <h2>Student FA Marks</h2>
+<h1>FA Marks Report</h1>
 
-    <div id="studentInfo">
-        Loading...
-    </div>
+<h2 id="studentName"></h2>
 
-    <br>
+<p id="studentReg"></p>
 
-    <button class="btn" onclick="logout()">
-        Logout
-    </button>
+<table>
+
+<thead>
+<tr>
+<th>Subject</th>
+<th>Marks</th>
+</tr>
+</thead>
+
+<tbody id="marksTable"></tbody>
+
+</table>
+
+<button class="logout" onclick="logout()">
+Logout
+</button>
 
 </div>
 
-<script type="module">
-
-import { db } from "./firebase-config.js";
-
-import {
-doc,
-getDoc
-}
-from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
-
-const regNo = localStorage.getItem("studentRegNo");
-
-if(!regNo){
-    window.location.href = "login.html";
-}
-
-const docRef = doc(db,"students",regNo);
-
-const docSnap = await getDoc(docRef);
-
-if(docSnap.exists()){
-
-    const student = docSnap.data();
-
-    let html = `
-        <h3>${student.name}</h3>
-        <p><b>Registration Number:</b> ${student.regNo}</p>
-
-        <table border="1" width="100%" cellpadding="10">
-        <tr>
-            <th>Subject</th>
-            <th>Marks</th>
-        </tr>
-    `;
-
-    const excluded = ["name","regNo","password"];
-
-    for(const key in student){
-
-        if(!excluded.includes(key)){
-
-            html += `
-            <tr>
-                <td>${key}</td>
-                <td>${student[key]}</td>
-            </tr>
-            `;
-        }
-    }
-
-    html += "</table>";
-
-    document.getElementById("studentInfo").innerHTML = html;
-
-}
-else{
-
-    document.getElementById("studentInfo").innerHTML =
-    "<h3>Student record not found.</h3>";
-
-}
-
-window.logout = function(){
-
-    localStorage.removeItem("studentRegNo");
-
-    window.location.href = "login.html";
-}
-
-</script>
+<script src="database.js"></script>
+<script src="marks.js"></script>
 
 </body>
 </html>
