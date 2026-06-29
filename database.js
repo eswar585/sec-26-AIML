@@ -169,9 +169,9 @@ const studentDatabase = {
         password: "manohar8101",
         marks: { "PSUP (25CS102)": 35.9, "EC (25CT102)": 29.4, "BEEE (25EE101)": 41.1, "MS (25MS101)": 46.7, "CODE (25MT105)": 34.2, "CS (25CY101)": 47.3, "EPACS (25EN103)": 48.2, "DIY (25ME102)": 43.4, "ICH (25SS103)": 38.3, "COI (25SS101)": 37.9 }
     },
-    "251FA18105": {
+    "251FA18106": {
         name: "BRAHMASANI AVINASH",
-        password: "avinash8105",
+        password: "avinash8106",
         marks: { "PSUP (25CS102)": 43.2, "EC (25CT102)": 45.2, "BEEE (25EE101)": 53.4, "MS (25MS101)": 48.1, "CODE (25MT105)": 43.6, "CS (25CY101)": 45.7, "EPACS (25EN103)": 43.1, "DIY (25ME102)": 43.4, "ICH (25SS103)": 41.0, "COI (25SS101)": 40.5 }
     },
     "251FA18111": {
