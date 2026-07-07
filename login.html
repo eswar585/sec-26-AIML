@@ -6,61 +6,91 @@
 <title>Student Login</title>
 
 <style>
+
 body{
-margin:0;
-font-family:Arial,sans-serif;
-background:linear-gradient(135deg,#1565d8,#42a5f5);
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#1565d8,#42a5f5);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
 .login-box{
-background:white;
-padding:30px;
-border-radius:15px;
-width:350px;
-box-shadow:0 5px 20px rgba(0,0,0,0.2);
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    width:350px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.25);
 }
 
 h2{
-text-align:center;
-color:#1565d8;
+    text-align:center;
+    color:#1565d8;
+    margin-bottom:20px;
 }
 
 input{
-width:100%;
-padding:12px;
-margin:10px 0;
-border:1px solid #ccc;
-border-radius:8px;
-box-sizing:border-box;
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+    box-sizing:border-box;
+    font-size:15px;
+}
+
+.password-container{
+    position:relative;
+    width:100%;
+}
+
+.password-container input{
+    padding-right:45px;
+}
+
+.toggle-password{
+    position:absolute;
+    right:15px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    font-size:20px;
+    user-select:none;
+}
+
+.toggle-password:hover{
+    opacity:0.7;
 }
 
 button{
-width:100%;
-padding:12px;
-background:#1565d8;
-color:white;
-border:none;
-border-radius:8px;
-cursor:pointer;
-font-size:16px;
+    width:100%;
+    padding:12px;
+    background:#1565d8;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    margin-top:10px;
 }
 
 button:hover{
-background:#0d47a1;
+    background:#0d47a1;
 }
 
 #error{
-color:red;
-text-align:center;
-margin-top:10px;
+    color:red;
+    text-align:center;
+    margin-top:15px;
+    font-weight:bold;
 }
+
 </style>
 
 </head>
+
 <body>
 
 <div class="login-box">
@@ -72,10 +102,20 @@ type="text"
 id="regNo"
 placeholder="Registration Number">
 
+<div class="password-container">
+
 <input
 type="password"
 id="password"
 placeholder="Password">
+
+<span
+class="toggle-password"
+onclick="togglePassword()">
+👁️
+</span>
+
+</div>
 
 <button onclick="login()">
 Login
