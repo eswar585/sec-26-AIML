@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Student Login</title>
+<title>FA Marks Login</title>
 
 <style>
 
@@ -25,7 +25,7 @@ background:linear-gradient(135deg,#1565d8,#42a5f5);
 }
 
 .login-box{
-background:#fff;
+background:white;
 width:380px;
 padding:35px;
 border-radius:18px;
@@ -41,10 +41,10 @@ margin-bottom:25px;
 input{
 width:100%;
 padding:13px;
+margin-bottom:15px;
 border:1px solid #ccc;
 border-radius:8px;
 font-size:15px;
-margin-bottom:15px;
 outline:none;
 }
 
@@ -66,7 +66,7 @@ right:15px;
 top:40%;
 transform:translateY(-50%);
 cursor:pointer;
-font-size:18px;
+font-size:20px;
 user-select:none;
 }
 
@@ -88,8 +88,8 @@ background:#0d47a1;
 
 #error{
 margin-top:12px;
-text-align:center;
 color:red;
+text-align:center;
 font-size:14px;
 }
 
@@ -98,16 +98,13 @@ margin-top:25px;
 text-align:center;
 font-size:13px;
 color:#555;
-line-height:1.8;
-}
-
-.contact p{
-margin-bottom:10px;
+line-height:1.7;
 }
 
 .contact a{
 display:inline-block;
-padding:12px 18px;
+margin-top:10px;
+padding:12px 20px;
 background:#EA4335;
 color:white;
 text-decoration:none;
@@ -118,7 +115,6 @@ transition:.3s;
 
 .contact a:hover{
 background:#c5221f;
-transform:translateY(-2px);
 }
 
 </style>
@@ -143,9 +139,7 @@ type="password"
 id="password"
 placeholder="Password">
 
-<span
-class="eye"
-onclick="togglePassword()">👁️</span>
+<span class="eye" onclick="togglePassword()">👁️</span>
 
 </div>
 
@@ -162,12 +156,8 @@ Forgot your password?<br>
 If you need to change your password, contact:
 </p>
 
-<a
-href="https://mail.google.com/mail/?view=cm&fs=1&to=eswaravuthu04@gmail.com&su=Password%20Reset%20Request&body=Hello%20Sir%2FMadam%2C%0A%0AMy%20Registration%20Number%20is%20______________%0AMy%20Name%20is%20____________________%0A%0APlease%20reset%20my%20password.%0A%0AThank%20you."
-target="_blank">
-
-📧 Contact via Gmail
-
+<a id="contactBtn" href="#">
+📧 Contact via Email
 </a>
 
 </div>
@@ -180,11 +170,37 @@ function togglePassword(){
 
 const password=document.getElementById("password");
 
-if(password.type==="password"){
-password.type="text";
-}else{
-password.type="password";
+password.type=password.type==="password"?"text":"password";
+
 }
+
+const email="eswarreddy@gmail.com";
+
+const subject="Password Reset Request";
+
+const body=`Hello Sir/Madam,
+
+My Registration Number:
+
+My Name:
+
+Please reset my password.
+
+Thank you.`;
+
+const mobile=/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+const btn=document.getElementById("contactBtn");
+
+if(mobile){
+
+btn.href=`mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+}else{
+
+btn.href=`https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+btn.target="_blank";
 
 }
 
